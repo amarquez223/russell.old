@@ -33,10 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
+gem 'devise', '>= 4.6.0'
 gem 'annotate'
 gem 'devise-i18n'
-gem 'bootstrap', '~>4.1.0'
+gem 'bootstrap', '>= 4.3.1'
 gem 'jquery-rails'
 
 group :development, :test do
