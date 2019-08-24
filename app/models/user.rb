@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role_id                :integer          not null
+#  admin                  :boolean
 #
 
 class User < ApplicationRecord
@@ -23,4 +25,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          password_length: 8..128
+
+  belongs_to :role
 end

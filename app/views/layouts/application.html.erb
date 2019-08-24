@@ -22,7 +22,7 @@
   	      <ul class="navbar-nav mr-auto">
 
   	        <%= link_to "Inicio", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
-  	        <%= link_to "Reportes", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
+  	        <%= link_to "Reportes", reportes_path, class: "nav-item nav-link " + current_class?(reportes_path) %>
   	        
   	      </ul>
 
@@ -30,21 +30,14 @@
   	        
   	        <% if user_signed_in? %>
 
-  	          <% invitations = Guest.where('email = ?',current_user.email).count %>
-  	          <% if invitations > 0 %>
-  	            <%= link_to "Invitaciones pendientes (" + invitations.to_s + ")", pollas_path + "?tab=invitations", class: "btn btn-success" %>
-  	          <% end %>
-  	        
-  	          <% adminroleid = Role.where('rolname = ?',"Administrator").take %>
-  	          <% @roles = Userrole.where('user_id = ? and role_id = ?', current_user.id,adminroleid) %>
   	          <li class="nav-item dropdown">
   	            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   	              <i class='far fa-user'></i>
-  	              <%= current_user.name.truncate(20) %>
+  	              <%= current_user.email.truncate(20) %>
   	            </a>
   	            <div class="dropdown-menu">
-  	              <% if @roles.count == 1 %>
-  	                <%= link_to "Administrar", administrar_path, class: "dropdown-item" %>
+  	              <% if current_user.admin %>
+  	                <%= link_to "Administrar", administrar_index_path, class: "dropdown-item" %>
   	              <% end %>
   	              <%= link_to "Editar Perfil", edit_user_registration_path, class: "dropdown-item" %>
   	              <div class="dropdown-divider"></div>
@@ -54,7 +47,11 @@
 
   	        <% else %>
   	          <li class="nav-item"><%= link_to "Ingresar", new_user_session_path, class: "nav-link" %></li>
-  	          <li class="nav-item"><%= link_to "Registrarse", new_user_registration_path, class: "btn btn-danger" %></li>
+
+  	          <% if false %>
+	  	          <li class="nav-item"><%= link_to "Registrarse", new_user_registration_path, class: "btn btn-danger" %></li>
+	  	      <% end %>
+
   	        <% end %>
   	        
   	      </ul>
@@ -65,6 +62,6 @@
     <div class="container mt-3">
       <%= yield %>
     </div>
-    
+
   </body>
 </html>
