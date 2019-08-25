@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: roles
+# Table name: accesses
 #
 #  id          :integer          not null, primary key
-#  rolename    :string
-#  customer_id :integer          not null
+#  accessname  :string           not null
+#  url         :string           not null
+#  customer_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Role < ApplicationRecord
+class Access < ApplicationRecord
   belongs_to :customer
-  has_many :users
   has_many :rolaccesses
 end

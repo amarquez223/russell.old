@@ -14,4 +14,5 @@
 
 class Customer < ApplicationRecord
 	has_many :roles
+	has_many :accesses
 end

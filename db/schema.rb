@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190823211909) do
+ActiveRecord::Schema.define(version: 20190824151446) do
+
+  create_table "accesses", force: :cascade do |t|
+    t.string "accessname", null: false
+    t.string "url", null: false
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_accesses_on_customer_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "nit"
@@ -20,6 +29,15 @@ ActiveRecord::Schema.define(version: 20190823211909) do
     t.string "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rolaccesses", force: :cascade do |t|
+    t.integer "access_id"
+    t.integer "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["access_id"], name: "index_rolaccesses_on_access_id"
+    t.index ["role_id"], name: "index_rolaccesses_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|

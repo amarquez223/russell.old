@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: accesses
+#
+#  id          :integer          not null, primary key
+#  accessname  :string           not null
+#  url         :string           not null
+#  customer_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accessname: MyString
+  url: MyString
+  customer: one
+
+two:
+  accessname: MyString
+  url: MyString
+  customer: two

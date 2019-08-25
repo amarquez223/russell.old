@@ -5,6 +5,10 @@ class ReportesController < ApplicationController
 
 		if user_signed_in?
 
+			@rolaccesses = Rolaccess.where(role_id: current_user.role.id)
+			@role = Role.where(id: current_user.role_id).take
+			@customer = Customer.where(id: @role.customer_id).take
+
 		end
 
 	end

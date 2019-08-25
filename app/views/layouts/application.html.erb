@@ -33,7 +33,8 @@
   	          <li class="nav-item dropdown">
   	            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   	              <i class='far fa-user'></i>
-  	              <%= current_user.email.truncate(20) %>
+  	              <button><%= current_user.email.truncate(20) %></button><br />
+  	              <button><%= current_user.role.customer.name.truncate(20) %></button>
   	            </a>
   	            <div class="dropdown-menu">
   	              <% if current_user.admin %>

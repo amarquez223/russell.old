@@ -1,1 +1,7 @@
-<h1>Welcome to Reportes</h1>
+<ul>
+	<% @rolaccesses.each do |ra| %>
+		<li><%= link_to ra.access.accessname, ra.access.url, target: "zoho" %></li>
+	<% end %>
+</ul>
+
+<iframe frameborder=0 width="800" height="600" src="<%= @rolaccesses.first.access.url %>" name="zoho" id="zoho"></iframe>
