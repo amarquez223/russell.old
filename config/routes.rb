@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  captcha_route
   	devise_for :users, controllers: {
   		sessions: 'users/sessions'
   	}

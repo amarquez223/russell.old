@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  role_id                :integer          not null
 #  admin                  :boolean
+#  unique_session_id      :string(20)
 #
 
 require 'test_helper'

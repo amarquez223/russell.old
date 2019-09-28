@@ -32,6 +32,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '>= 4.6.0'
+gem 'devise-security'
+gem 'easy_captcha'
+gem 'rmagick'
+
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "recaptcha", require: "recaptcha/rails"
+
 gem 'annotate'
 gem 'devise-i18n'
 gem 'bootstrap', '>= 4.3.1'

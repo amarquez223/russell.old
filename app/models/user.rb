@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  role_id                :integer          not null
 #  admin                  :boolean
+#  unique_session_id      :string(20)
 #
 
 class User < ApplicationRecord
@@ -24,7 +25,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         password_length: 8..128
+         :session_limitable, password_length: 8..128
 
   belongs_to :role
 end
